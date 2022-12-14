@@ -5,6 +5,7 @@ export const initTestEnv = async (useSheet = true) => {
   const serviceKey = getPrivateKey({
     filepath: 'test-key.pem'
   })
+  console.log(`servicekey is ${serviceKey}`)
   const appConfig = [
     { slackChannel: 'EX4MPL3CH4NN3L', githubTeam: 'test-team' }
   ]
