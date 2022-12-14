@@ -117,14 +117,21 @@ export async function githubHandler(cache = true) {
   if (cache && githubOctokit) return githubOctokit
   const MyOctokit = Octokit.plugin(paginateRest)
   const appOctokit = new MyOctokit({
-    // authStrategy: createAppAuth,
+    authStrategy: createAppAuth,
     auth: {
       appId: getFromGithubConfig('appId'),
       privateKey: getFromGithubConfig('privateKey')
     }
   })
   // Get the installation id for the current organization
-  const { data } = await appOctokit.request('/app/installations')
+  let data
+  try {
+    const response = await appOctokit.request('/app/installations')
+    console.log(`------------response is ${response}`)
+    data = response.data
+  } catch (error) {
+    console.log('---------error is', error.message)
+  }
   const org = data.find(
     ins =>
       ins.account &&
