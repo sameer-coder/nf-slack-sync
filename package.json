@@ -16,7 +16,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "synth": "npm run build && cdk synth",
-    "test": "unset NODE_OPTIONS && npm run build && tap",
+    "test": "npm run build && tap",
     "prepare": "husky install"
   },
   "devDependencies": {
