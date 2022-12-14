@@ -1,5 +1,4 @@
-import { promisify } from 'util'
-// import pem from 'pem'
+// import { promisify } from 'util'
 import pem from 'https-pem'
 
 export const initTestEnv = async (useSheet = true) => {
@@ -7,6 +6,7 @@ export const initTestEnv = async (useSheet = true) => {
   // const { serviceKey } = await createCertificateProm({
   //   days: 1,
   //   selfSigned: true
+// import pem from 'pem'
   // })
   const serviceKey = pem.key
   const appConfig = [
