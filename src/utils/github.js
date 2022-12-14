@@ -123,7 +123,7 @@ export async function githubHandler(cache = true) {
       privateKey: getFromGithubConfig('privateKey')
     }
   })
-  console.log(`=-LOG-= ---> appOctokit`, JSON.stringify(appOctokit.request))
+  console.log(`=-LOG-= ---> appOctokit`, appOctokit.request)
   // Get the installation id for the current organization
   const { data } = await appOctokit.request('/app/installations')
   const org = data.find(
