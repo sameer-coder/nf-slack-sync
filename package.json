@@ -1,0 +1,57 @@
+{
+  "name": "slack-channel-github-team-sync",
+  "version": "0.1.0",
+  "bin": {
+    "slack-channel-github-team-sync": "bin/slack-channel-github-team-sync.js"
+  },
+  "homepage": "https://github.com/nearform/slack-channel-github-team-sync",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/slackSqsEmitter/index.js src/slackSqsReceiver/index.js src/cronLambda/index.js --bundle --minify --platform=node --target=node18 --outbase=src --outdir=dist",
+    "cdk": "cdk",
+    "deploy": "npm run build && cdk deploy",
+    "deploy:cd": "npm run build && cdk deploy --require-approval never",
+    "diff": "cdk diff",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "synth": "npm run build && cdk synth",
+    "test": "npm run build && tap",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@istanbuljs/esm-loader-hook": "^0.2.0",
+    "aws-cdk": "2.54.0",
+    "aws-sdk-mock": "^5.8.0",
+    "esbuild": "^0.16.2",
+    "eslint": "^8.29.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
+    "nock": "^13.2.9",
+    "pem": "^1.14.6",
+    "prettier": "2.8.1",
+    "tap": "^16.3.2"
+  },
+  "dependencies": {
+    "@octokit/auth-app": "^4.0.7",
+    "@octokit/core": "^4.1.0",
+    "@octokit/plugin-paginate-rest": "^5.0.1",
+    "@slack/bolt": "^3.12.2",
+    "aws-cdk-lib": "2.54.0",
+    "aws-sdk": "^2.1270.0",
+    "constructs": "^10.1.183",
+    "env-schema": "^5.2.0",
+    "fluent-json-schema": "^4.0.0",
+    "googleapis": "^109.0.1",
+    "pino": "^8.7.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  },
+  "tap": {
+    "test-ignore": [
+      "test/setup-test.js"
+    ]
+  }
+}

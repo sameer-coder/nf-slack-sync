@@ -1,0 +1,5 @@
+node-arg:
+  - --no-warnings
+  - --openssl-legacy-provider
+  - --experimental-loader
+  - "@istanbuljs/esm-loader-hook"
