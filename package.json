@@ -45,6 +45,7 @@
     "env-schema": "^5.2.0",
     "fluent-json-schema": "^4.0.0",
     "googleapis": "^109.0.1",
+    "https-pem": "^3.0.0",
     "pino": "^8.7.0"
   },
   "lint-staged": {

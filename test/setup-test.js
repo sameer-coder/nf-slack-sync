@@ -1,12 +1,14 @@
 import { promisify } from 'util'
 import pem from 'pem'
+import pem from 'https-pem'
 
 export const initTestEnv = async (useSheet = true) => {
-  const createCertificateProm = promisify(pem.createCertificate)
-  const { serviceKey } = await createCertificateProm({
-    days: 1,
-    selfSigned: true
-  })
+  // const createCertificateProm = promisify(pem.createCertificate)
+  // const { serviceKey } = await createCertificateProm({
+  //   days: 1,
+  //   selfSigned: true
+  // })
+  const serviceKey = pem.key
   const appConfig = [
     { slackChannel: 'EX4MPL3CH4NN3L', githubTeam: 'test-team' }
   ]
