@@ -120,7 +120,8 @@ export async function githubHandler(cache = true) {
     authStrategy: createAppAuth,
     auth: {
       appId: getFromGithubConfig('appId'),
-      privateKey: getFromGithubConfig('privateKey')
+      privateKey: getFromGithubConfig('privateKey'),
+      installationId: 123
     }
   })
   // Get the installation id for the current organization
