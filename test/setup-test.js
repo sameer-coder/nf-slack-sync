@@ -1,7 +1,10 @@
-import pem from 'https-pem'
+// import pem from 'https-pem'
+import { getPrivateKey } from '@probot/get-private-key'
 
 export const initTestEnv = async (useSheet = true) => {
-  const serviceKey = pem.key
+  const serviceKey = getPrivateKey({
+    filepath: 'test-key.pem'
+  })
   const appConfig = [
     { slackChannel: 'EX4MPL3CH4NN3L', githubTeam: 'test-team' }
   ]
