@@ -116,6 +116,10 @@ let githubOctokit
 export async function githubHandler(cache = true) {
   if (cache && githubOctokit) return githubOctokit
   const MyOctokit = Octokit.plugin(paginateRest)
+  console.log(`getFromGithubConfig('appId') is ${getFromGithubConfig('appId')}`)
+  console.log(
+    `getFromGithubConfig('privateKey') is ${getFromGithubConfig('privateKey')}`
+  )
   const appOctokit = new MyOctokit({
     authStrategy: createAppAuth,
     auth: {
