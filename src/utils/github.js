@@ -126,7 +126,7 @@ export async function githubHandler(cache = true) {
   // Get the installation id for the current organization
   let data
   try {
-    console.log(`${JSON.stringify(appOctokit.request.defaults)}`)
+    console.log(`${JSON.stringify(appOctokit.request)}`)
     const response = await appOctokit.request('/app/installations')
     console.log(`------------response is ${response}`)
     data = response.data
