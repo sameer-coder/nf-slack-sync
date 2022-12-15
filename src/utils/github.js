@@ -120,13 +120,13 @@ export async function githubHandler(cache = true) {
     authStrategy: createAppAuth,
     auth: {
       appId: getFromGithubConfig('appId'),
-      privateKey: getFromGithubConfig('privateKey'),
-      installationId: 123
+      privateKey: getFromGithubConfig('privateKey')
     }
   })
   // Get the installation id for the current organization
   let data
   try {
+    console.log(`${JSON.stringify(appOctokit.request.defaults())}`)
     const response = await appOctokit.request('/app/installations')
     console.log(`------------response is ${response}`)
     data = response.data
