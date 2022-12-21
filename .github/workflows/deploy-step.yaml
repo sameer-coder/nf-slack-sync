@@ -1,0 +1,45 @@
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+    secrets:
+      sheet_config:
+        required: true
+      slack_config:
+        required: true
+      app_config:
+        required: true
+      github_config:
+        required: true
+      aws_region:
+        required: true
+      aws_arn_role:
+        required: true
+
+
+
+jobs:
+  deploy:
+    name: Pass input and secrets to my-action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'        
+      - run: npm ci  
+      - name: Configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.AWS_ARN_ROLE }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      - name: Deploy the application
+        run: npm run deploy:cd
+        env:
+          SLACK_CONFIG: ${{ secrets.slack_config }}
+          APP_CONFIG: ${{ secrets.app_config }}
+          GITHUB_CONFIG: ${{ secrets.github_config }}
+          SHEET_CONFIG: ${{ secrets.sheet_config }}
+          ENVIRONMENT: ${{ inputs.environment }}

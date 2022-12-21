@@ -1,5 +1,5 @@
 node-arg:
   - --no-warnings
-  - --openssl-legacy-provider
+  - --no-experimental-fetch
   - --experimental-loader
   - "@istanbuljs/esm-loader-hook"

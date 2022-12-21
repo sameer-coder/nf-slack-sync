@@ -1,0 +1,23 @@
+name: cd
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  call-deploy-dev:
+    uses: ./.github/workflows/deploy-step.yaml
+    with:
+      environment: develop
+    secrets:
+      sheet_config: ${{ secrets.DEV_SHEET_CONFIG }}
+      slack_config: ${{ secrets.DEV_SLACK_CONFIG }}
+      github_config: ${{ secrets.DEV_GITHUB_CONFIG }}
+      app_config: ${{ secrets.DEV_APP_CONFIG }}
+      aws_region: ${{ secrets.AWS_REGION }}
+      aws_arn_role: ${{ secrets.AWS_ARN_ROLE }}
