@@ -1,6 +1,6 @@
 {
   "name": "slack-channel-github-team-sync",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "bin": {
     "slack-channel-github-team-sync": "bin/slack-channel-github-team-sync.js"
   },
