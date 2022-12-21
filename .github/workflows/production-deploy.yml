@@ -1,0 +1,22 @@
+name: production-deploy
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  call-deploy-prod:
+    uses: ./.github/workflows/deploy-step.yaml
+    with:
+      environment: prod
+    secrets:
+      sheet_config: ${{ secrets.PROD_SHEET_CONFIG }}
+      slack_config: ${{ secrets.PROD_SLACK_CONFIG }}
+      github_config: ${{ secrets.PROD_GITHUB_CONFIG }}
+      app_config: ${{ secrets.PROD_APP_CONFIG }}
+      aws_region: ${{ secrets.AWS_REGION }}
+      aws_arn_role: ${{ secrets.AWS_ARN_ROLE }}
