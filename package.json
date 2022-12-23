@@ -43,7 +43,7 @@
     "constructs": "^10.1.195",
     "env-schema": "^5.2.0",
     "fluent-json-schema": "^4.0.0",
-    "googleapis": "^109.0.1",
+    "googleapis": "^110.0.0",
     "https-pem": "^3.0.0",
     "pino": "^8.8.0"
   },
