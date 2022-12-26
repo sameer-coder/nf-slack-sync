@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@istanbuljs/esm-loader-hook": "^0.2.0",
-    "aws-cdk": "2.56.0",
+    "aws-cdk": "2.56.1",
     "aws-sdk-mock": "^5.8.0",
     "esbuild": "^0.16.10",
     "eslint": "^8.30.0",
