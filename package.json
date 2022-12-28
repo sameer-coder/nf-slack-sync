@@ -22,7 +22,7 @@
     "@istanbuljs/esm-loader-hook": "^0.2.0",
     "aws-cdk": "2.56.1",
     "aws-sdk-mock": "^5.8.0",
-    "esbuild": "^0.16.11",
+    "esbuild": "^0.16.12",
     "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
