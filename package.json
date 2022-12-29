@@ -40,7 +40,7 @@
     "@slack/bolt": "^3.12.2",
     "aws-cdk-lib": "2.57.0",
     "aws-sdk": "^2.1283.0",
-    "constructs": "^10.1.202",
+    "constructs": "^10.1.203",
     "env-schema": "^5.2.0",
     "fluent-json-schema": "^4.0.0",
     "googleapis": "^110.0.0",
