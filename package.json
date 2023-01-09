@@ -31,7 +31,7 @@
     "nock": "^13.2.9",
     "pem": "^1.14.6",
     "prettier": "2.8.1",
-    "tap": "^16.3.2"
+    "tap": "^16.3.3"
   },
   "dependencies": {
     "@octokit/auth-app": "^4.0.7",
